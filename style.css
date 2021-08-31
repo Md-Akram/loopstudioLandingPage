@@ -125,8 +125,7 @@ section {
   position: relative;
   margin: 20px 0;
 }
-.single-img > img {
-}
+
 .single-img > h2 {
   position: absolute;
   bottom: 20px;
@@ -200,17 +199,6 @@ footer {
   margin: 10px 0;
 }
 
-/* ul > li > a::after {
-  content: '';
-  width: 50%;
-  height: 2px;
-  background-color: white;
-  position: absolute;
-  bottom: 0;
-  left: 50%;
-  transform: translateX(-50%);
-  opacity: 0;
-} */
 ul > li > a:hover {
   text-decoration: underline;
 }
@@ -225,7 +213,7 @@ ul > li > a:hover {
   color: var(--White);
 }
 
-@media (min-width: 768px) {
+@media (min-width: 769px) {
   header {
     background-image: url(images/desktop/image-hero.jpg);
   }
@@ -252,5 +240,88 @@ ul > li > a:hover {
     padding: 30px;
     text-align: left;
     border: 1px solid var(--White);
+  }
+
+  .mobile {
+    display: none;
+  }
+  .desktop {
+    display: block;
+  }
+  .grid-container {
+    display: grid;
+    grid-template-columns: repeat(8, 12.5%);
+    grid-template-rows: repeat(5, 20%);
+  }
+  .grid-container > .desktop-img {
+    grid-column: 1/6;
+    grid-row: 1/4;
+  }
+  .grid-container > .description {
+    grid-column: 5/9;
+    grid-row: 3/6;
+    z-index: 100;
+    background-color: white;
+    padding: 20px;
+    margin: 0;
+    border: 1px solid red;
+  }
+  .description {
+    width: 100%;
+  }
+
+  .product-container {
+    display: grid;
+    grid-template-areas:
+      'heading btn'
+      'gallery gallery';
+  }
+  .product-container > h1 {
+    grid-area: heading;
+    justify-self: flex-start;
+    margin: 0;
+  }
+  .product-container > .btn {
+    grid-area: btn;
+    justify-self: flex-end;
+    margin: 0;
+  }
+  .product-container > .gallery {
+    grid-area: gallery;
+  }
+  .desktop-gallery {
+    display: grid;
+    grid-gap: 3%;
+    grid-template-columns: repeat(4, 22.5%);
+    grid-template-rows: repeat(2, 50%);
+    margin-top: 20px;
+  }
+  footer > .container {
+    display: grid;
+    grid-template-columns: repeat(2, 50%);
+
+    grid-template-areas:
+      'top  bottom'
+      'attribute attribute';
+    align-items: center;
+  }
+  footer > .container > .footer-top {
+    grid-area: 'top';
+    margin: 0;
+    justify-self: flex-start;
+  }
+  footer > .container > .footer-bottom {
+    grid-area: 'bottom';
+    margin: 0;
+    justify-self: flex-end;
+  }
+  footer > .container > .attribution {
+    grid-area: attribute;
+  }
+  .footer-top > img {
+    margin-top: 80px;
+  }
+  .footer-top > ul {
+    display: flex;
   }
 }
